@@ -26,7 +26,7 @@ const BusinessProfiles = ({refresh}) => {
     }
 
     const deleteBusinessProfile = (businessProfile) => {
-        return <button type="button" class="btn btn-danger" onClick={() => {businessProfilesService.deleteItem(businessProfile.id).then(() => {setLoading(!loading)});}}>delete</button>
+        return <i class="bi bi-trash-fill"></i>
     }
     return (
         <div>
@@ -50,7 +50,7 @@ const BusinessProfiles = ({refresh}) => {
                     {profiles.map(profile => (<tr><td>{profile.companyName}</td><td>{profile.legalName}</td><td>{profile.email}</td><td>{profile.website}</td><td>{profile.taxIdentifier}</td><td>{convertAddressToStr(profile.businessAddress)}</td><td>{getProductNames(profile.products)}</td><td>{deleteBusinessProfile(profile)}</td></tr>))}
                 </tbody>
             </table>
-        </div>
+        </div> 
     )
 }
 
