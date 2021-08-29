@@ -26,7 +26,10 @@ const BusinessProfiles = ({refresh}) => {
     }
 
     const deleteBusinessProfile = (businessProfile) => {
-        return <i class="bi bi-trash-fill"></i>
+        return <div style={{"display":"flex", "justifyContent":"space-around"}}>
+                    <i class="bi bi-trash-fill" style={{"color":"#ff5a5a", "cursor":"pointer"}} onClick={() => {businessProfilesService.deleteItem(businessProfile.id).then(() => {setLoading(!loading)});}}></i>
+                    <i class="bi bi-pencil" style={{"color":"#2f2fc1", "cursor":"pointer"}}></i>
+                </div>
     }
     return (
         <div>
@@ -35,7 +38,7 @@ const BusinessProfiles = ({refresh}) => {
             <Link to="/createBusinessProfile"><button type="button" class="btn btn-primary">Create</button></Link><br/>
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr style={{"textAlign":"center"}}>
                     <th scope="col">companyName</th>
                     <th scope="col">legalName</th>
                     <th scope="col">email</th>
@@ -43,10 +46,10 @@ const BusinessProfiles = ({refresh}) => {
                     <th scope="col">taxIdentifier</th>
                     <th scope="col">businessAddress</th>
                     <th scope="col">products</th>
-                    <th scope="col">delete</th>
+                    <th scope="col">actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={{"textAlign":"center"}}>
                     {profiles.map(profile => (<tr><td>{profile.companyName}</td><td>{profile.legalName}</td><td>{profile.email}</td><td>{profile.website}</td><td>{profile.taxIdentifier}</td><td>{convertAddressToStr(profile.businessAddress)}</td><td>{getProductNames(profile.products)}</td><td>{deleteBusinessProfile(profile)}</td></tr>))}
                 </tbody>
             </table>
