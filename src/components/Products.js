@@ -11,7 +11,7 @@ const Products = ({products, refresh}) => {
     const productActions = (product) => {
         return <div style={{"display":"flex", "justifyContent":"space-around"}}>
                     <i class="bi bi-trash-fill" style={{"color":"#ff5a5a", "cursor":"pointer"}} onClick={() => {productService.deleteItem(product.id).then(() => {refresh()})}}></i>
-                    <i class="bi bi-pencil" style={{"color":"#2f2fc1", "cursor":"pointer"}}></i>
+                    <Link to={{pathname:"/editProduct", state:{productData:product}}}> <i class="bi bi-pencil" style={{"color":"#2f2fc1", "cursor":"pointer"}}></i></Link>
                 </div>
     }
     return (
