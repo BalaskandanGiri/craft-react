@@ -18,7 +18,7 @@ const Products = ({products, refresh}) => {
         <div>
             <center><h2>Products</h2></center>
             <br/>
-            <Link to="/createProduct"><button type="button" class="btn btn-primary">Create</button></Link><br/>
+            <div style={{display:"flex",justifyContent:"flex-end",paddingRight:"15px"}}><Link to="/createProduct"><i class="bi bi-plus-lg"></i></Link></div>
             <table class="table">
                 <thead>
                     <tr style={{"textAlign":"center"}}>
