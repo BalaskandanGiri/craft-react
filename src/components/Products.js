@@ -8,7 +8,7 @@ import productService from '../services/productService'
 const Products = ({products, refresh}) => {
     console.log(products)
     if(!products || products.length === 0) return null
-    const deleteProduct = (product) => {
+    const productActions = (product) => {
         return <div style={{"display":"flex", "justifyContent":"space-around"}}>
                     <i class="bi bi-trash-fill" style={{"color":"#ff5a5a", "cursor":"pointer"}} onClick={() => {productService.deleteItem(product.id).then(() => {refresh()})}}></i>
                     <i class="bi bi-pencil" style={{"color":"#2f2fc1", "cursor":"pointer"}}></i>
@@ -25,11 +25,11 @@ const Products = ({products, refresh}) => {
                     <th scope="col">id</th>
                     <th scope="col">name</th>
                     <th scope="col">description</th>
-                    <th scope="col">delete</th>
+                    <th scope="col">actions</th>
                     </tr>
                 </thead>
                 <tbody style={{"textAlign":"center"}}>
-                    {products.map(product => (<tr><td>{product.id}</td><td>{product.name}</td><td>{product.description}</td><td>{deleteProduct(product)}</td></tr>))}
+                    {products.map(product => (<tr><td>{product.id}</td><td>{product.name}</td><td>{product.description}</td><td>{productActions(product)}</td></tr>))}
                 </tbody>
             </table>
         </div>
