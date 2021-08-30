@@ -7,6 +7,8 @@ import productService from './services/productService';
 import BusinessProfiles from './components/BusinessProfiles';
 import AddNewProfile from './components/AddNewProfile';
 import AddNewBusinessProfile from './components/AddNewBusinessProfile';
+import EditProfile from './components/EditProfile';
+import EditBusinessProfile from './components/EditBusinessProfile';
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -31,6 +33,8 @@ function App() {
             </div>
 
             <Switch>
+                <Route path="/editBusinessProfile" component={EditBusinessProfile}/>
+                <Route path="/editProduct" component={EditProfile}/>
                 <Route path="/createBusinessProfile">
                     <AddNewBusinessProfile refresh={()=> {setLoading(!loading)}}></AddNewBusinessProfile>
                 </Route>
