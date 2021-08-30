@@ -33,9 +33,8 @@ const BusinessProfiles = ({refresh}) => {
     }
     return (
         <div>
-            <center><h2>BusinessProfiles</h2></center>
-            <br/>
-            <Link to="/createBusinessProfile"><button type="button" class="btn btn-primary">Create</button></Link><br/>
+            <center><h2>BusinessProfiles</h2></center><br/>
+            <div style={{display:"flex",justifyContent:"flex-end",paddingRight:"15px"}}><Link to="/createBusinessProfile"><i class="bi bi-plus-lg"></i></Link></div>
             <table class="table">
                 <thead>
                     <tr style={{"textAlign":"center"}}>
