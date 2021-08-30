@@ -13,7 +13,7 @@ const create = async (body) => {
 }
 
 const change = async (body) => {
-    const resp = await axios.put(baseUrl + '/' + body.id, body, { headers: { 'Authorization': token, 'Content-Type': 'application/json' } } )
+    const resp = await axios.put(baseUrl + '/' + body.id, body, { headers: { 'Content-Type': 'application/json' } } )
     return resp.data
 }
 
